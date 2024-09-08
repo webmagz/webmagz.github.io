@@ -4,7 +4,7 @@
   "home_page_url": "{{ .Site.BaseURL }}",
   "feed_url": "http://www.pottoin.com/feed.json",
   "description": "{{ .Site.Params.description }}",
-  "icon": "https://paritosh.dev/assets/apple-touch-icon.png",
+  "icon": "http://www.pottoin.com/assets/apple-touch-icon.png",
   "favicon": "http://www.pottoin.com/assets/favicon.ico",
   "expired": false,
   "author": {
