@@ -9,7 +9,7 @@
   "expired": false,
   "author": {
     "name": "Paritosh Baghel",
-    "url": "https://paritosh.dev/"
+    "url": "http://www.pottoin.com/"
   },
   "items": [
     {{ $list := (where .Site.RegularPages "Section" "writing") }}
