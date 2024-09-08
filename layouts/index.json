@@ -2,7 +2,7 @@
   "version": "https://jsonfeed.org/version/1",
   "title": "{{ .Site.Title }}",
   "home_page_url": "{{ .Site.BaseURL }}",
-  "feed_url": "https://paritosh.dev/feed.json",
+  "feed_url": "http://www.pottoin.com/feed.json",
   "description": "{{ .Site.Params.description }}",
   "icon": "https://paritosh.dev/assets/apple-touch-icon.png",
   "favicon": "http://www.pottoin.com/assets/favicon.ico",
