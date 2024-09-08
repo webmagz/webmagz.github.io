@@ -5,7 +5,7 @@
   "feed_url": "https://paritosh.dev/feed.json",
   "description": "{{ .Site.Params.description }}",
   "icon": "https://paritosh.dev/assets/apple-touch-icon.png",
-  "favicon": "https://paritosh.dev//assets/favicon.ico",
+  "favicon": "http://www.pottoin.com/assets/favicon.ico",
   "expired": false,
   "author": {
     "name": "Paritosh Baghel",
@@ -29,7 +29,7 @@
       "date_modified": "{{ .Date.Format `2016-02-09T14:22:00-07:00` | safeHTML }}",
       "author": {
         "name": "Paritosh Baghel",
-        "url": "https://paritosh.dev/"
+        "url": "http://www.pottoin.com/"
       }
     }{{ if ne (add $index 1) $len }},{{ end }}
     {{ end }}
