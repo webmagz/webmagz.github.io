@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Folder Otomatis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .folder-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .folder-item {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .folder-item a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .folder-item a:hover {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Daftar Folder</h1>
+
+    <div class="folder-list" id="folderList">
+        <!-- Daftar folder akan muncul di sini -->
+    </div>
+
+    <script>
+        // URL API GitHub untuk mengakses daftar file/folder di repositori tertentu
+        const apiURL = 'https://api.github.com/repos/webmagz/webmagz.github.io/contents';
+
+        // Fungsi untuk memuat dan menampilkan folder dari API GitHub
+        function loadFolders() {
+            fetch(apiURL)
+                .then(response => response.json())
+                .then(data => {
+                    // Mengambil elemen dengan id "folderList" untuk menampilkan hasilnya
+                    const folderListContainer = document.getElementById('folderList');
+                    folderListContainer.innerHTML = ''; // Mengosongkan kontainer sebelumnya
+                    
+                    // Iterasi untuk mencari folder dan menambahkannya ke daftar
+                    data.forEach(item => {
+                        if (item.type === 'dir') { // Mengecek apakah item adalah folder
+                            const folderItem = document.createElement('div');
+                            folderItem.classList.add('folder-item');
+                            const folderLink = document.createElement('a');
+                            folderLink.href = item.html_url; // URL ke folder di GitHub
+                            folderLink.target = '_blank';
+                            folderLink.textContent = item.name;
+                            folderItem.appendChild(folderLink);
+                            folderListContainer.appendChild(folderItem);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading folders:', error);
+                });
+        }
+
+        // Memanggil fungsi untuk memuat folder saat halaman dimuat
+        window.onload = loadFolders;
+    </script>
+
+</body>
+</html>
