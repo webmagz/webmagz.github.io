@@ -68,9 +68,13 @@
                             const folderItem = document.createElement('div');
                             folderItem.classList.add('folder-item');
                             const folderLink = document.createElement('a');
-                            folderLink.href = item.html_url; // URL ke folder di GitHub
+                            
+                            // Modifikasi URL agar mengarah ke GitHub Pages
+                            const folderName = item.name;
+                            folderLink.href = `https://webmagz.github.io/${folderName}`; // URL GitHub Pages
                             folderLink.target = '_blank';
-                            folderLink.textContent = item.name;
+                            folderLink.textContent = folderName;
+                            
                             folderItem.appendChild(folderLink);
                             folderListContainer.appendChild(folderItem);
                         }
